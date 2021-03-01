@@ -139,7 +139,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/admin/api/**").hasRole("ADMIN")
-                .antMatchers("/user/api/**").hasRole("USER")
+                .antMatchers("/user/api/**").permitAll()
                 .antMatchers("/app/api/**", "/captcha.jpg").permitAll()
                 .anyRequest().authenticated()
                 .and()
